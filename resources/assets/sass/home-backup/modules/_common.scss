@@ -1,0 +1,14 @@
+.main {
+  max-width: 927px;
+  margin: 50px auto;
+  padding: 0 30px 50px;
+  position: relative;
+}
+a {
+  color: $link-color;
+}
+@media screen and (max-width: 640px){
+  & .main{
+    padding: 0 10px;
+  }
+}

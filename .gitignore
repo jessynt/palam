@@ -1,0 +1,11 @@
+/node_modules
+/public/storage
+/vendor
+/.idea
+.env
+_ide_helper.php
+.phpstorm.meta.php
+/public/build
+/public/css/
+/public/build/
+/public/js/

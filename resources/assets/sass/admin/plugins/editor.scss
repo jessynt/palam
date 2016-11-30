@@ -1,0 +1,12 @@
+@import "node_modules/simplemde/dist/simplemde.min";
+.editor-toolbar {
+  &.fullscreen {
+    z-index: 1050;
+  }
+}
+.CodeMirror-fullscreen {
+  z-index: 1050;
+}
+.editor-preview-side {
+  z-index: 1050;
+}
