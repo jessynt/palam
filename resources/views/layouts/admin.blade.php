@@ -36,7 +36,7 @@
 
 </div>
 @yield('before-scripts-end')
-<script src="{{ elixir('js/admin/dashboard.js') }}"></script>
+<script src="{{ webpack('js', 'admin') }}"></script>
 @yield('after-scripts-end')
 </body>
 </html>
