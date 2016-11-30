@@ -20,7 +20,6 @@ class HelperTest extends TestCase
     public function conversionsProvider()
     {
         return [
-            ['Laravel is a web application framework with expressive', 'Laravel is a web application framework with expressive'],
             ['Laravel is a web application framework with expressive<!--more-->, elegant syntax.', 'Laravel is a web application framework with expressive'],
         ];
     }
