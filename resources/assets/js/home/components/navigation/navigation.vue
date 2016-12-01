@@ -4,7 +4,7 @@
             <router-link :to="{ name: 'home'}">Home</router-link>
         </li>
         <li class="navbar-item">
-            <router-link :to="{ name: 'archives'}">Archives</router-link>
+            <router-link :to="{ name: 'archive'}">Archive</router-link>
         </li>
     </ul>
 </template>

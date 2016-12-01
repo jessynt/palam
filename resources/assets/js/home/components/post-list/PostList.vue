@@ -3,7 +3,7 @@
         <li v-for="(post, index) in postList" class="post-item">
             <div class="post-preview">
                 <h2 class="post-title">
-                    <router-link class="post-title-link" :to="{ path: '/post/' + post.id }">
+                    <router-link class="post-title-link" :to="{ name: 'post', params: {postName:post.id }}">
                         {{ post.title }}
                     </router-link>
                 </h2>

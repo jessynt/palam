@@ -3,7 +3,7 @@ import VueRouter from 'vue-router';
 
 import Home from '../pages/home';
 import Post from '../pages/post';
-import Archives from '../pages/archives';
+import archive from '../pages/archive';
 
 Vue.use(VueRouter);
 
@@ -21,9 +21,9 @@ const router = new VueRouter({
             component: Post
         },
         {
-            path: '/archives',
-            name: 'archives',
-            component: Archives
+            path: '/archive',
+            name: 'archive',
+            component: archive
         }
     ],
     scrollBehavior (to, from, savedPosition) {

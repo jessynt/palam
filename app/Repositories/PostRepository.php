@@ -117,7 +117,7 @@ class PostRepository extends Repository
             'title',
             'slug',
             'created_at',
-        ])->orderBy('created_at', 'desc')->get();
+        ])->orderBy('created_at', 'DESC')->get();
     }
 
     /**

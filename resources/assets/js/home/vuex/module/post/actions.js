@@ -7,7 +7,7 @@ const getPost = ({commit}, {postName, router}) => {
     commit(GET_POST);
     new PostService().getPostByName(postName)
         .then(result => {
-            if (result.data && result.data) {
+            if (result.data) {
                 return result;
             } else {
                 throw new Error('Post not found!');
