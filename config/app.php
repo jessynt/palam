@@ -180,7 +180,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\PluginProviders\ValidationServiceProvider::class,
+//        App\Providers\PluginProviders\ValidationServiceProvider::class,
         App\Providers\PluginProviders\CarbonServiceProvider::class,
         App\Providers\PluginProviders\FakerServiceProvider::class,
     ],
