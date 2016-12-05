@@ -11,8 +11,7 @@
         "tymon/jwt-auth": "0.5.*",
         "davejamesmiller/laravel-breadcrumbs": "^3.0",
         "hieu-le/active": "^3.3",
-        "erusev/parsedown": "^1.6",
-        "overtrue/pinyin": "~3.0"
+        "erusev/parsedown": "^1.6"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
