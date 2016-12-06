@@ -6,7 +6,7 @@
         <div class="archive" v-for="(item, index) in archive" v-if="!isLoading">
             <h2 class="year">{{ index }}</h2>
             <div class="post-item" v-for="post in item">
-                <div class="post-time">{{ formatDatetime(post.created_at) }}</div>
+                <div class="post-time">{{ post.created_date }}</div>
                 <router-link class="post-title-link" :to="{ name: 'post', params: {postName:post.id }}">
                     {{ post.title }}
                 </router-link>
@@ -75,15 +75,11 @@
             })
         },
         methods: {
-            ...mapActions(['getArchive']),
-            formatDatetime(datetime){
-                let date = new Date(datetime);
-                return date.getMonth() + '月' + date.getDay() + '日';
-            }
+            ...mapActions(['getArchive'])
         },
         created() {
             this.getArchive();
         }
-    }
+    };
     export default ArchiveComponent;
 </script>

@@ -54,9 +54,15 @@ class PostController extends BaseController
         return $this->item($post, new PostTransformer());
     }
 
+    /**
+     * @return mixed
+     */
     public function archive()
     {
         $posts = $this->postRepository->archives();
+        $posts->map(function ($post) {
+            $post->created_date = $post->created_at->toDateString();
+        });
         $posts = $posts->groupBy(function ($post) {
             return $post->created_at->year;
         });
