@@ -10,17 +10,13 @@
                 <div class="post-meta">
                     <span class="meta-date">{{ post.created_at }}</span>
                     <div class="meta-tags">
-                <span v-for="(tag, index) in post.tags.data">
-                <span v-if="index > 0">, </span>
-                <router-link class="tag-link" :to="{ path: '/tags/' + tag.name }">{{tag.name}}</router-link>
-                </span>
+                        <span v-for="(tag, index) in post.tags.data" v-bind:style="{backgroundColor: tag.color}">
+                            <router-link class="tag-link" :to="{ path: '/tags/' + tag.name }">{{tag.name}}</router-link>
+                        </span>
                     </div>
                     </p>
                 </div>
                 <div class="post-content" v-html="post.description"></div>
-                <router-link class="read-more" :to="{ path: '/post/' + post.id }">
-                    Read more..
-                </router-link>
             </div>
         </li>
     </ul>
@@ -42,6 +38,7 @@
                 display: block;
                 font-weight: 400;
                 font-size: 26px;
+                padding-bottom: .3em;
                 font-family: Athelas, Times New Roman, STHeiti, Microsoft Yahei, serif;
                 .post-title-link {
                     color: #34495e;
@@ -60,8 +57,14 @@
                 .meta-tags {
                     display: inline-block;
                     span {
+                        font-size: 75%;
+                        padding: .2em .6em .3em;
+                        font-weight: bold;
+                        border-radius: .25em;
+                        background-color: #000000;
+                        margin: 0 .1em;
                         a {
-                            color: rgba(119, 119, 119, .6);
+                            color: #fff;
                             text-decoration: none;
                         }
                     }
@@ -362,12 +365,15 @@
                     }
                 }
             }
-            .read-more {
-                color: #7a43b6;
-                font-size: 1.1em;
-
-                &:hover {
-                    border-bottom: 1px solid #16982B;
+            @media screen and (max-width: 767px) {
+                .post-meta {
+                    .meta-tags {
+                        display: block;
+                        padding-top: .3em;
+                        span {
+                            white-space: nowrap;
+                        }
+                    }
                 }
             }
         }
