@@ -1,98 +1,79 @@
 <template>
-    <div class="spinner-box" v-show="loading">
-        <div class="spinner-inner">
-            <div class="la-ball-beat">
-                <div :style="spinner_style"></div>
-                <div :style="spinner_style"></div>
-                <div :style="spinner_style"></div>
-            </div>
-        </div>
+    <div class="loader">
+        <div class="inner one"></div>
+        <div class="inner two"></div>
+        <div class="inner three"></div>
     </div>
 </template>
 
-<script>
-    export default {
-        name: 'loading',
-        props: {
-            loading: {
-                type: Boolean,
-                default: true
-            },
-            color: {
-                type: String,
-                default: '#1B813E'
-            },
-            height: {
-                type: String,
-                default: '15px'
-            },
-            width: {
-                type: String,
-                default: '15px'
-            },
-            margin: {
-                type: String,
-                default: '5px'
-            }
-        },
-        data () {
-            return {
-                spinner_style: {
-                    backgroundColor: this.color,
-                    height: this.height,
-                    width: this.width,
-                    margin: this.margin
-                }
-            }
-        }
-    }
-</script>
 <style lang="scss" rel="stylesheet/scss" scoped>
     @import '../../../../sass/home/mixins.scss';
     @import '../../../../sass/home/variables.scss';
 
-    .spinner-box {
-        position: relative;
-        width: 100%;
-        min-height: 50px;
-        height: 100%;
-        > .spinner-inner {
-            width: 80px;
-            height: 30px;
+    .loader {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        perspective: 800px;
+        margin-left: 50%;
+        .inner {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            margin-left: -40px;
-            margin-top: -15px;
-            > .la-ball-beat {
-                display: block;
-                font-size: 0;
-                color: #fff;
-                width: 80px;
-                height: 30px;
-                > div {
-                    display: inline-block;
-                    width: 15px;
-                    height: 15px;
-                    margin: 5px;
-                    background-color: $module-hover-bg;
-                    @include css3-prefix(animation, ball-beat 0.86s -0.15s infinite linear);
-                    &:nth-child(2n-1) {
-                        @include css3-prefix(animation-delay, -.5s);
-                    }
-                }
-            }
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+        .inner.one {
+            left: 0;
+            top: 0;
+            @include css3-prefix(animation, rotate-one 1s infinite linear);
+            border-bottom: 3px solid #000000;
+        }
+
+        .inner.two {
+            right: 0;
+            top: 0;
+            @include css3-prefix(animation, rotate-two 1s infinite linear);
+            border-right: 3px solid #000000;
+        }
+
+        .inner.three {
+            right: 0;
+            bottom: 0;
+            @include css3-prefix(animation, rotate-three 1s infinite linear);
+            border-top: 3px solid #000000;
         }
     }
 
-    @include keyframes(ball-beat) {
-        50% {
-            opacity: .2;
-            @include css3-prefix(transform, scale(0.75));
+    @keyframes rotate-one {
+        0% {
+            @include css3-prefix(transform, rotateX(35deg) rotateY(-45deg) rotateZ(0deg));
         }
         100% {
-            opacity: 1;
-            @include css3-prefix(transform, scale(1));
+            @include css3-prefix(transform, rotateX(35deg) rotateY(-45deg) rotateZ(360deg));
+        }
+    }
+
+    @keyframes rotate-two {
+        0% {
+            @include css3-prefix(transform, rotateX(50deg) rotateY(15deg) rotateZ(0deg));
+        }
+        100% {
+            @include css3-prefix(transform, rotateX(50deg) rotateY(10deg) rotateZ(360deg));
+        }
+    }
+
+    @keyframes rotate-three {
+        0% {
+            @include css3-prefix(transform, rotateX(35deg) rotateY(55deg) rotateZ(0deg));
+        }
+        100% {
+            @include css3-prefix(transform, rotateX(35deg) rotateY(55deg) rotateZ(360deg));
         }
     }
 </style>
+<script>
+    export default {
+        name: 'loading'
+    }
+</script>
