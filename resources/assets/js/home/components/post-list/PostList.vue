@@ -46,6 +46,9 @@
                 .post-title-link {
                     color: #34495e;
                     text-decoration: none;
+                    &:hover {
+                        color: $link-hover-color;
+                    }
                 }
             }
             .post-meta {

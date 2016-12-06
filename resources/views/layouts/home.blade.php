@@ -50,9 +50,11 @@
             border-collapse: collapse;
             border-spacing: 0;
         }
-        body {
-            border-top: 3px solid rgb(27, 129, 62);
-            line-height: 1.5;
+        body:before {
+            display: block;
+            margin: 0 auto;
+            border-top: 3px solid #222c37;
+            content: ' ';
         }
     </style>
 </head>

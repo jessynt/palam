@@ -13,7 +13,7 @@
     @import '../../../../sass/home/variables.scss';
     .navbar {
         float: right;
-        margin-top: 0px;
+        margin-top: 0;
         font-family: Athelas, Times New Roman, STHeiti, Microsoft Yahei, serif;
         .navbar-item {
             display: inline-block;

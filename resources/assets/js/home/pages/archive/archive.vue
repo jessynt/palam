@@ -19,6 +19,7 @@
     @import '../../../../sass/home/variables.scss';
 
     .archive {
+        line-height: 1.4;
         .year {
             margin: 20px 0;
             font-size: 28px;

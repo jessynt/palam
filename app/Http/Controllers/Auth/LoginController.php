@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Validator;
 use Illuminate\Http\Request;
 use App\Services\AuthenticationService;
 use App\Http\Controllers\Controller;
