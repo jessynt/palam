@@ -1,4 +1,5 @@
 <?php
+
 Breadcrumbs::register('admin.post.index', function ($breadcrumbs) {
     $breadcrumbs->parent('admin.dashboard');
     $breadcrumbs->push('文章列表', route('admin.post.index'));

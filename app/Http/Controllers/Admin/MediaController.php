@@ -5,9 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 
 /**
- * Class MediaController
- *
- * @package App\Http\Controllers\Admin
+ * Class MediaController.
  */
 class MediaController extends Controller
 {

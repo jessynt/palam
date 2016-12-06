@@ -51,7 +51,7 @@ class TagController extends Controller
      */
     public function store(CreateTagRequest $request)
     {
-        $this->tagRepository->create($request->intersect('name'));
+        $this->tagRepository->create($request->intersect('name', 'color'));
         return Redirect::route('admin.tag.index')->withFlashSuccess('创建成功!');
     }
 
@@ -71,11 +71,11 @@ class TagController extends Controller
      *
      * @param UpdateTagRequest $request
      * @param Tag              $tag
-     * @return $this
+     * @return \Illuminate\Http\RedirectResponse|Redirect
      */
     public function update(UpdateTagRequest $request, Tag $tag)
     {
-        if ($this->tagRepository->update($request->intersect('name'), $tag)) {
+        if ($this->tagRepository->update($request->intersect('name', 'color'), $tag)) {
             return Redirect::route('admin.tag.index')->withFlashSuccess('修改成功!');
         }
         return Redirect::back()->withInput()->withErrors('修改失败');

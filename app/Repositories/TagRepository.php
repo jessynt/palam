@@ -40,11 +40,11 @@ class TagRepository extends Repository
 
     /**
      * @param $data
-     * @return static
+     * @return Tag
      */
     public function create($data)
     {
-        return $this->tag->create(['name' => $data['name']]);
+        return $this->tag->create($data);
     }
 
     /**

@@ -12,10 +12,13 @@ class TagTableSeeder extends Seeder
     public function run()
     {
         $category = new \App\Models\Tag();
-        $initial_tag = ['PHP', 'Laravel'];
+        $initial_tag = [
+            ['name' => 'PHP', 'color' => '#8892bf'],
+            ['name' => 'Laravel', 'color' => '#f4645f']
+        ];
 
         foreach ($initial_tag as $item) {
-            $category->create(['name' => $item]);
+            $category->create($item);
         }
     }
 }

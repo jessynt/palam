@@ -32,7 +32,7 @@
                             <td>
                                 @if(count($post->tags) >0)
                                         @foreach($post->tags as $tag)
-                                            <span class="label label-success">{{ $tag->name }}</span>
+                                    <span class="label" style="background-color: {{ $tag->color }}">{{ $tag->name }}</span>
                                         @endforeach
                                 @else
                                     无

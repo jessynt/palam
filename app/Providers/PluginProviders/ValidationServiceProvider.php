@@ -15,11 +15,14 @@ class ValidationServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        /**
-         * 中国大陆手机号码验证
-         */
+         // 中国大陆手机号码验证
         Validator::extend('zh_mobile', function ($attribute, $value) {
             return preg_match('/^(\+?0?86\-?)?((13\d|14[57]|15[^4,\D]|17[678]|18\d)\d{8}|170[059]\d{7})$/', $value);
+        });
+        // Checks if value is valid hexadecimal color code.
+        Validator::extend('hex_color', function ($attribute, $value) {
+            $pattern = '/^#[a-fA-F0-9]{3,6}$/';
+            return (boolean) preg_match($pattern, $value);
         });
     }
 }

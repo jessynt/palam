@@ -19,6 +19,7 @@
                     <tr>
                         <th>ID</th>
                         <th>名称</th>
+                        <th>Color</th>
                         <th>创建时间</th>
                         <th>文章</th>
                         <th>操作</th>
@@ -29,6 +30,7 @@
                         <tr>
                             <td>{{$tag->id}}</td>
                             <td>{{ $tag->name }}</td>
+                            <td><span class="label" style="background-color: {{ $tag->color }}">{{ $tag->name }}</span></td>
                             <td>{{ $tag->created_at->toDateString() }}</td>
                             <td>{{ $tag->posts_count }}</td>
                             <td>

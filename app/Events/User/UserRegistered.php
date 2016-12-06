@@ -6,7 +6,6 @@ use App\Models\User;
 
 class UserRegistered
 {
-
     /** @var User $user */
     private $user;
 
