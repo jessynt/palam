@@ -47,6 +47,15 @@ class TagRepository extends Repository
         return $this->tag->create($data);
     }
 
+    public function getTagByName($name)
+    {
+        $tag  = $this->tag->with('posts')->where(['name' => $name])->first();
+        if (!$tag) {
+            abort(404);
+        }
+        return $tag;
+    }
+
     /**
      * @return Tag
      */

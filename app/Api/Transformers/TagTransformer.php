@@ -8,6 +8,13 @@ use League\Fractal\TransformerAbstract;
 class TagTransformer extends TransformerAbstract
 {
     /**
+     * List of resources possible to include
+     *
+     * @var  array
+     */
+    protected $availableIncludes = ['posts'];
+
+    /**
      * Transform a response with a transformer.
      *
      * @param Tag $tag
@@ -18,7 +25,12 @@ class TagTransformer extends TransformerAbstract
     {
         return [
             'name' => $tag['name'],
-            'color' => $tag['color'],
+            'color' => $tag['color']
         ];
+    }
+
+    public function includePosts(Tag $tag)
+    {
+        return $this->collection($tag->posts, new PostTransformer);
     }
 }

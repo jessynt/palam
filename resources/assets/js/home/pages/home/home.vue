@@ -1,8 +1,6 @@
 <template>
     <section>
-        <div style="text-align: center" v-if="isLoading">
-            <loading></loading>
-        </div>
+        <loading v-if="isLoading"></loading>
         <post-list v-if="!isLoading" :post-list="posts.list"></post-list>
         <pagination v-if="!isLoading" :pagination="posts.pagination"></pagination>
     </section>

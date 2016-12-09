@@ -29,6 +29,7 @@ class PostTransformer extends TransformerAbstract
             'body' => $post['body'],
             'updated_at' => $post['updated_at']->toDateTimeString(),
             'created_at' => $post['created_at']->toDateTimeString(),
+            'created_date' => $post['created_at']->toDateString(),
         ];
     }
 

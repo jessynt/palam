@@ -50,6 +50,12 @@
             border-collapse: collapse;
             border-spacing: 0;
         }
+        body {
+            font-size: 16px;
+            line-height: 1.5;
+            font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Cantarell,Fira Sans,Helvetica Neue,Hiragino Sans GB,Microsoft Yahei,sans-serif;
+            font-weight: normal;
+        }
         body:before {
             display: block;
             margin: 0 auto;

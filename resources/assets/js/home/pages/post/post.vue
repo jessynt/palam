@@ -1,8 +1,6 @@
 <template>
     <section>
-        <div style="text-align: center" v-if="isLoading">
-            <loading></loading>
-        </div>
+        <loading v-if="isLoading"></loading>
         <article v-if="!isLoading">
             <h2 class="post-title">
                 {{ post.title }}
@@ -11,7 +9,7 @@
                 <span class="meta-date">{{ post.created_at }}</span>
                 <div class="meta-tags">
                         <span v-for="(tag, index) in post.tags.data" v-bind:style="{backgroundColor: tag.color}">
-                            <router-link class="tag-link" :to="{ path: '/tags/' + tag.name }">{{tag.name}}</router-link>
+                            <router-link class="tag-link" :to="{ name: 'tag', params: {tagName: tag.name} }">{{tag.name}}</router-link>
                         </span>
                 </div>
                 </p>
@@ -21,6 +19,8 @@
     </section>
 </template>
 <style lang="scss" rel="stylesheet/scss">
+    @import '../../../../sass/home/mixins.scss';
+    @import '../../../../sass/home/variables.scss';
     article {
         .post-title {
             display: block;
@@ -61,6 +61,7 @@
             line-height: 1.6;
             background-color: white;
             color: #516272;
+            padding-top: 2em;
             a {
                 color: #4183C4;
             }
@@ -98,6 +99,13 @@
                 font-size: 24px;
                 border-bottom: 1px solid #DDE4E9;
                 color: #2B3F52;
+                &:before{
+                    color: $link-color;
+                    content: "";
+                    border-left: 5px solid #f66;
+                    margin-right: 5px;
+                    font-size: 1.1em;
+                }
             }
             h3 {
                 font-size: 18px;

@@ -1,8 +1,6 @@
 <template>
     <section>
-        <div style="text-align: center" v-if="isLoading">
-            <loading></loading>
-        </div>
+        <loading v-if="isLoading"></loading>
         <div class="archive" v-for="(item, index) in archive" v-if="!isLoading">
             <h2 class="year">{{ index }}</h2>
             <div class="post-item" v-for="post in item">
@@ -19,7 +17,9 @@
     @import '../../../../sass/home/variables.scss';
 
     .archive {
-        line-height: 1.4;
+        line-height: 1.6;
+        margin: 3em auto;
+        max-width: 720px;
         .year {
             margin: 20px 0;
             font-size: 28px;
@@ -29,6 +29,9 @@
         .post-item {
             padding: 2px 10px;
             border-left: $archive-item-border;
+            .post-title-link{
+                color: $global-theme-color;
+            }
             &:hover {
                 padding-left: 13px;
                 border-left: $archive-item-hover-border;
@@ -36,10 +39,6 @@
 
                 .post-time {
                     color: darken($global-dark-gray, 10%);
-                }
-
-                .post-link {
-                    color: darken($global-theme-color, 10%);
                 }
             }
         }
@@ -49,16 +48,10 @@
             margin: 0 10px;
             color: $global-dark-gray;
         }
-
-        .post-link {
-            width: 75%;
-            display: inline-block;
-            color: $global-theme-color;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            position: relative;
-            top: 6px;
+    }
+    @media screen and (max-width: 800px){
+        .archive  {
+            width: 100%;
         }
     }
 </style>

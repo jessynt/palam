@@ -11,7 +11,7 @@
                     <span class="meta-date">{{ post.created_at }}</span>
                     <div class="meta-tags">
                         <span v-for="(tag, index) in post.tags.data" v-bind:style="{backgroundColor: tag.color}">
-                            <router-link class="tag-link" :to="{ path: '/tags/' + tag.name }">{{tag.name}}</router-link>
+                            <router-link class="tag-link" :to="{ name: 'tag', params: {tagName: tag.name} }">{{tag.name}}</router-link>
                         </span>
                     </div>
                     </p>

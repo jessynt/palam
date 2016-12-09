@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 
 import Home from '../pages/home';
 import Post from '../pages/post';
+import Tag from '../pages/tag'
 import archive from '../pages/archive';
 
 Vue.use(VueRouter);
@@ -19,6 +20,11 @@ const router = new VueRouter({
             path: '/post/:postName',
             name: 'post',
             component: Post
+        },
+        {
+            path: '/tag/:tagName',
+            name: 'tag',
+            component: Tag
         },
         {
             path: '/archive',

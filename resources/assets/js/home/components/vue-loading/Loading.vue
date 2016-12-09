@@ -13,9 +13,9 @@
     .loader {
         width: 64px;
         height: 64px;
-        border-radius: 50%;
+        -webkit-perspective: 800px;
         perspective: 800px;
-        margin-left: 50%;
+        margin: 0 auto;
         .inner {
             position: absolute;
             box-sizing: border-box;
