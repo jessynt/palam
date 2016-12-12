@@ -29,11 +29,8 @@ let Config = ({
     resolve: {
         extensions: ['', '.js'],
         alias: {
-            'vue$': 'vue/dist/vue',
-            'common': JS_SOURCE_CODE_PATH + '/common',
-            'components': JS_SOURCE_CODE_PATH + '/components',
-            'containers': JS_SOURCE_CODE_PATH + '/containers',
-        },
+            'vue$': 'vue/dist/vue'
+        }
     },
     module: {
         loaders: [
@@ -50,14 +47,7 @@ let Config = ({
             {
                 test: /\.s[a|c]ss$/,
                 loader: 'style!css!sass'
-            },
-            {
-                test: /\.html$/,
-                loader: 'html',
-                query: {interpolate: true},
-                exclude: /node_modules/,
-                include: JS_SOURCE_CODE_PATH
-            },
+            }
         ]
     },
     vue: {
@@ -100,18 +90,11 @@ if (Production) {
                 warnings: false
             }
         }),
-
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.MinChunkSizePlugin({
             minChunkSize: 51200
-        }),
-
-        // Add banner
-        new webpack.BannerPlugin([
-            'Author: Jessynt <xr5299@gmail.com>',
-            'Date: ' + new Date().toLocaleDateString('zh-CN')
-        ].join("\n"), {raw: false, entryOnly: true})
+        })
     ]);
 }
 module.exports = Config;
