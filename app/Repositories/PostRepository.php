@@ -37,7 +37,7 @@ class PostRepository extends Repository
     /**
      *
      * @param $data
-     * @return static
+     * @return Post|bool
      */
     public function create($data)
     {
