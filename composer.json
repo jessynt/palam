@@ -1,5 +1,5 @@
 {
-    "name": "laravel/laravel",
+    "name": "jessynt/palam",
     "license": "MIT",
     "type": "project",
     "require": {
@@ -11,7 +11,8 @@
         "tymon/jwt-auth": "0.5.*",
         "davejamesmiller/laravel-breadcrumbs": "^3.0",
         "hieu-le/active": "^3.3",
-        "erusev/parsedown": "^1.6"
+        "erusev/parsedown": "^1.6",
+        "barryvdh/laravel-cors": "^0.8.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

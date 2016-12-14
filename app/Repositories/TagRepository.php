@@ -49,7 +49,7 @@ class TagRepository extends Repository
 
     public function getTagByName($name)
     {
-        $tag  = $this->tag->with('posts')->where(['name' => $name])->first();
+        $tag  = $this->tag->where(['name' => $name])->first();
         if (!$tag) {
             abort(404);
         }

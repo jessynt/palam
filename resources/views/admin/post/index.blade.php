@@ -42,7 +42,6 @@
                             <td>{{ $post->created_at->diffForHumans() }}</td>
                             <td>{{ $post->updated_at->diffForHumans() }}</td>
                             <td>
-                                <a href="{{ url('/post', ['id' => $post->id]) }}" class="btn btn-xs btn-success" target="_blank" rel="noopener"><i class="fa fa-eye" data-toggle="tooltip" data-placement="top" data-original-title="查看"></i></a>
                                 <a href="{{ route('admin.post.edit', ['id' => $post->id]) }}" class="btn btn-xs btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" data-original-title="编辑"></i></a>
                                 <a href="" class="btn btn-xs btn-danger"><i class="fa fa-trash" data-toggle="tooltip" data-placement="top" data-original-title="删除"></i></a>
                             </td>

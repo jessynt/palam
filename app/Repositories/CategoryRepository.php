@@ -80,4 +80,13 @@ class CategoryRepository extends Repository
     {
         return $this->category;
     }
+
+    public function getCategoryByName($name)
+    {
+        $category  = $this->category->where(['name' => $name])->first();
+        if (!$category) {
+            abort(404);
+        }
+        return $category;
+    }
 }

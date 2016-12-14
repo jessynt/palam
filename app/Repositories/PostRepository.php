@@ -23,13 +23,13 @@ class PostRepository extends Repository
 
     /**
      * @param $flag
-     * @return \Illuminate\Database\Eloquent\Model|static
+     * @return Post
      * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
      */
     public function get($flag)
     {
-        if (!$post = Post::find($flag)) {
-            $post = $this->post->with('category', 'tags')->where('slug', $flag)->firstOrFail();
+        if (!$post = $this->post->with('category', 'tags')->where('slug', $flag)->firstOrFail()) {
+            $post = Post::findOrFail($flag);
         }
         return $post;
     }
@@ -67,7 +67,7 @@ class PostRepository extends Repository
      * 获取文章并分页
      *
      * @param        $per_page
-     * @param array  $condition
+     * @param array $condition
      * @param string $order_by
      * @param string $sort
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator

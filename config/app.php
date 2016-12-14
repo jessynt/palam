@@ -172,6 +172,7 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
         HieuLe\Active\ActiveServiceProvider::class,
+        Barryvdh\Cors\ServiceProvider::class,
         /*
          * Application Service Providers...
          */

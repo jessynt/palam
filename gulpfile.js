@@ -26,7 +26,8 @@ elixir(mix => {
         ], 'public/css/admin/dashboard.css', './')
 
         //Admin
-        .browserify('plugins/editor.js', 'public/js/admin/editor.js')
+        .webpack('plugins/editor.js', 'public/js/admin/editor.js')
+        .webpack('dashboard.js', 'public/js/admin/dashboard.js')
 
-        .version(['public/css/admin/dashboard.css'])
+        .version(['public/css/admin/dashboard.css', 'public/js/admin/dashboard.js'])
 });

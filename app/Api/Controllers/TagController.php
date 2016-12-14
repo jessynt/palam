@@ -19,10 +19,9 @@ class TagController extends BaseController
     {
         $this->tagRepository = $tagRepository;
     }
-
     public function show($name)
     {
         $tag = $this->tagRepository->getTagByName($name);
-        return $this->item($tag, new TagTransformer(), ['posts']);
+        return $this->item($tag, new TagTransformer());
     }
 }

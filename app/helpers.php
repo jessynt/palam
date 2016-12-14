@@ -34,27 +34,3 @@ if (!function_exists('excerpt_more')) {
         return null;
     }
 }
-if (!function_exists('webpack')) {
-    /**
-     * Get the path to a versioned Webpack file.
-     *
-     * @param string $extension
-     * @param string $bundle
-     *
-     * @return string
-     *
-     * @throws \InvalidArgumentException
-     */
-    function webpack($extension, $bundle = 'build')
-    {
-        static $manifest = null;
-        if (null === $manifest) {
-            $path = public_path('build/manifest.json');
-            $manifest = json_decode(file_get_contents($path), true);
-        }
-        if (isset($manifest[$bundle][$extension])) {
-            return $manifest[$bundle][$extension];
-        }
-        throw new InvalidArgumentException("File {$bundle}.{$extension} not defined in asset manifest.");
-    }
-}

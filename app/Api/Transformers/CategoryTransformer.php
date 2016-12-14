@@ -8,6 +8,12 @@ use League\Fractal\TransformerAbstract;
 class CategoryTransformer extends TransformerAbstract
 {
     /**
+     * List of resources possible to include
+     *
+     * @var  array
+     */
+    protected $availableIncludes = ['posts'];
+    /**
      * Transform a response with a transformer.
      *
      * @param Category $category
@@ -19,5 +25,10 @@ class CategoryTransformer extends TransformerAbstract
         return [
             'name' => $category['name'],
         ];
+    }
+
+    public function includePosts(Category $category)
+    {
+        return $this->collection($category->posts, new PostTransformer);
     }
 }
