@@ -25,7 +25,7 @@ class UserRepository extends Repository
 
     /**
      * @param array $data
-     * @return bool|static
+     * @return User
      */
     public function create(array $data)
     {
