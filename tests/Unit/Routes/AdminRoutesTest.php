@@ -65,4 +65,24 @@ Class AdminRoutesTest extends TestCase
         $this->assertEquals(200, $response->status());
         $this->assertViewHasAll(['category']);
     }
+
+    public function test_user_cam_access_the_tags_page()
+    {
+        $response = $this->actingAs($this->user)->call('GET', route('admin.tag.index'));
+        $this->assertEquals(200, $response->status());
+        $this->assertViewHasAll(['tags']);
+    }
+
+    public function test_user_cam_access_the_create_tag_page()
+    {
+        $response = $this->actingAs($this->user)->call('GET', route('admin.tag.create'));
+        $this->assertEquals(200, $response->status());
+    }
+
+    public function test_user_cam_access_the_edit_tag_page()
+    {
+        $response = $this->actingAs($this->user)->call('GET', route('admin.tag.edit', ['id' => '1']));
+        $this->assertEquals(200, $response->status());
+        $this->assertViewHasAll(['tag']);
+    }
 }
