@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Validator;
 use Illuminate\Http\Request;
 use App\Services\AuthenticationService;
 use App\Http\Controllers\Controller;
@@ -77,10 +76,10 @@ class LoginController extends Controller
     protected function credentials(Request $request)
     {
         //登录方式判断 手机号码/邮箱/用户名
-        $field = Validator::make($request->all(), [
-            $this->username() => 'zh_mobile'
-        ])->passes() ? 'mobile' : (filter_var($request->input($this->username()), FILTER_VALIDATE_EMAIL) ? 'email' : 'username');
-
+//        $field = Validator::make($request->all(), [
+//            $this->username() => 'zh_mobile'
+//        ])->passes() ? 'mobile' : (filter_var($request->input($this->username()), FILTER_VALIDATE_EMAIL) ? 'email' : 'username');
+        $field = filter_var($request->input($this->username(), FILTER_VALIDATE_EMAIL) ? 'email' : 'username');
         $credentials = array_merge([$field => $request->input($this->username())], $request->only('password', 'remember'));
         return $credentials;
     }

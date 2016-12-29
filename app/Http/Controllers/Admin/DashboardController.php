@@ -4,11 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\PostRepository;
-use Auth;
 
 class DashboardController extends Controller
 {
-    /** @var  PostRepository */
+    /** @var PostRepository */
     protected $postRepository;
 
     /**
@@ -21,10 +20,10 @@ class DashboardController extends Controller
         $this->postRepository = $postRepository;
     }
 
-
     public function index()
     {
         $latestPosts = $this->postRepository->latest(5);
+
         return view('admin.dashboard', compact('latestPosts'));
     }
 }

@@ -81,7 +81,7 @@ return [
     'timezone'             => ':attribute 必须是一个合法的时区值。',
     'unique'               => ':attribute 已经存在。',
     'url'                  => ':attribute 格式不正确。',
-
+    'hex_color'            => ':attribute 格式不正确。',
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines
@@ -145,7 +145,8 @@ return [
         'login'                 => '帐号',
         'zh_mobile'             => '手机号码',
         'category_id'           => '分类',
-        'tags_id'               => '标签'
+        'tags_id'               => '标签',
+        'color'                 => '颜色'
     ],
 
 ];

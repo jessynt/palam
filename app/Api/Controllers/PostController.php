@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Api\Controllers;
 
 use App\Api\Transformers\PostTransformer;
@@ -33,6 +34,7 @@ class PostController extends BaseController
     public function index()
     {
         $posts = $this->postRepository->getPostsPaginated(20);
+
         return $this->paginator($posts, new PostTransformer());
     }
 
@@ -42,6 +44,7 @@ class PostController extends BaseController
      * @param string $slug
      *
      * @return mixed
+     *
      * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
      */
     public function show($slug)
@@ -51,12 +54,19 @@ class PostController extends BaseController
         return $this->item($post, new PostTransformer());
     }
 
+    /**
+     * @return mixed
+     */
     public function archive()
     {
         $posts = $this->postRepository->archives();
+        $posts->map(function ($post) {
+            $post->created_date = $post->created_at->toDateString();
+        });
         $posts = $posts->groupBy(function ($post) {
             return $post->created_at->year;
         });
+
         return $this->array(['data' => $posts->toArray()]);
     }
 }

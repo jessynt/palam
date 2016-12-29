@@ -1,4 +1,5 @@
 <?php
+
 Breadcrumbs::register('admin.tag.index', function ($breadcrumbs) {
     $breadcrumbs->parent('admin.dashboard');
     $breadcrumbs->push('标签列表', route('admin.tag.index'));

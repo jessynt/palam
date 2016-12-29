@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Api\Controllers;
+namespace App\Api\Controllers;
 
 use JWTAuth;
 use Illuminate\Http\Request;

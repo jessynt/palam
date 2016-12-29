@@ -1,4 +1,5 @@
 <?php
+
 Breadcrumbs::register('admin.category.index', function ($breadcrumbs) {
     $breadcrumbs->parent('admin.dashboard');
     $breadcrumbs->push('分类列表', route('admin.category.index'));

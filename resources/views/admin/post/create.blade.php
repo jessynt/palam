@@ -39,65 +39,65 @@
             </div>
 
             <div class="col-md-3">
-                <div class="box box-success">
-                    <div class="box-header with-border">
-                        <div class="box-title">发布</div>
-                    </div>
-                    <div class="box-body">
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="box box-info">
+                <div class="box box-danger">
                     <div class="box-header with-border">
                         <div class="box-title">分类</div>
                         <div class="box-tools pull-right">
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                                        class="fa fa-minus"></i>
                             </button>
                         </div>
                     </div>
                     <div class="box-body">
                         <div class="form-group">
-                                @foreach($categories as $category)
+                            @foreach($categories as $category)
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" name="category_id" value="{{ $category->id }}">{{ $category->name }}
+                                        <input type="radio" name="category_id"
+                                               value="{{ $category->id }}">{{ $category->name }}
                                     </label>
                                 </div>
-                                @endforeach
+                            @endforeach
                         </div>
-                        {{--<a href="">+ 添加新分类</a>--}}
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="box box-info">
+                <div class="box box-success">
                     <div class="box-header with-border">
                         <div class="box-title">标签</div>
                         <div class="box-tools pull-right">
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                <i class="fa fa-minus"></i>
                             </button>
                         </div>
                     </div>
                     <div class="box-body">
                         <div class="form-group">
-                            @foreach($tags as $tag)
-                                <label class="checkbox-inline">
-                                <input type="checkbox" name="tags_id[]" value="{{ $tag->name }}">{{ $tag->name }}
-                                </label>
-                            @endforeach
+                            <select id="post-tags" name="tags_id[]" class="form-control" multiple>
+                                @foreach($tags as $tag)
+                                    <option value="{{$tag->name}}">{{$tag->name}}</option>
+                                @endforeach
+                            </select>
                         </div>
-                        {{--<a href="">+ 添加新标签</a>--}}
                     </div>
-                </div>
-            </div>
-        </form>
+    </div>
+    </div>
+    </form>
     </div>
 @endsection
 @section('after-styles-end')
     <link rel="stylesheet" href="{{asset('/css/admin/editor.css')}}">
+    <link href="//cdn.bootcss.com/select2/4.0.3/css/select2.min.css" rel="stylesheet">
 @endsection
 @section('after-scripts-end')
     <script src="{{asset('/js/admin/editor.js')}}"></script>
+    <script src="//cdn.bootcss.com/select2/4.0.3/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#post-tags').select2({
+                tags: true
+            });
+        });
+    </script>
 @endsection

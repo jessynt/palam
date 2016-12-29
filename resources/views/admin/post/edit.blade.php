@@ -60,7 +60,6 @@
                                 </div>
                             @endforeach
                         </div>
-                        {{--<a href="">+ 添加新分类</a>--}}
                     </div>
                 </div>
             </div>
@@ -75,14 +74,14 @@
                         </div>
                     </div>
                     <div class="box-body">
+
                         <div class="form-group">
-                            @foreach($tags as $tag)
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" name="tags_id[]" value="{{ $tag->name }}" {{ ($post->tags->contains($tag->id) ? 'checked':'') }}>{{ $tag->name }}
-                                </label>
-                            @endforeach
+                            <select id="post-tags" name="tags_id[]" class="form-control" multiple>
+                                @foreach($tags as $tag)
+                                    <option value="{{$tag->name}}" {{ ($post->tags->contains($tag->id) ? 'selected':'') }}>{{$tag->name}}</option>
+                                @endforeach
+                            </select>
                         </div>
-                        {{--<a href="">+ 添加新标签</a>--}}
                     </div>
                 </div>
             </div>
@@ -91,9 +90,16 @@
 @endsection
 @section('after-styles-end')
     <link rel="stylesheet" href="{{asset('/css/admin/editor.css')}}">
+    <link href="//cdn.bootcss.com/select2/4.0.3/css/select2.min.css" rel="stylesheet">
 @endsection
 @section('after-scripts-end')
-    <script src="https://cdn.jsdelivr.net/highlight.js/latest/highlight.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/highlight.js/latest/styles/github.min.css">
     <script src="{{asset('/js/admin/editor.js')}}"></script>
+    <script src="//cdn.bootcss.com/select2/4.0.3/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#post-tags').select2({
+                tags: true
+            });
+        });
+    </script>
 @endsection
