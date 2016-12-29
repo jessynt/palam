@@ -1,11 +1,11 @@
 <?php
 namespace App\Services;
 
-use Auth;
-use Event;
 use App\Events\User\UserLoggedEvent;
 use App\Events\User\UserRegistered;
 use App\Repositories\UserRepository;
+use Auth;
+use Event;
 use Illuminate\Contracts\Auth\Guard;
 
 class AuthenticationService
@@ -18,7 +18,7 @@ class AuthenticationService
     /**
      * AuthenticationRepository constructor.
      *
-     * @param Guard          $auth
+     * @param Guard $auth
      * @param UserRepository $userRepository
      */
     public function __construct(Guard $auth, UserRepository $userRepository)
@@ -30,15 +30,14 @@ class AuthenticationService
 
     /**
      * @param $data
-     * @return bool|static
+     * @return \App\Models\User
      */
     public function create($data)
     {
         if ($user = $this->userRepository->create($data)) {
             Event::fire(new UserRegistered($user));
-            return $user;
         }
-        return false;
+        return $user;
     }
 
     /**
@@ -49,10 +48,9 @@ class AuthenticationService
     {
         $remember = array_key_exists('remember', $data);
         array_forget($data, 'remember');
-        if ($this->auth->attempt($data, $remember)) {
+        if ($login = $this->auth->attempt($data, $remember)) {
             Event::fire(new UserLoggedEvent(Auth::user()));
-            return true;
         }
-        return false;
+        return $login;
     }
 }

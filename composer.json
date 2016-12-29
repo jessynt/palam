@@ -12,7 +12,8 @@
         "davejamesmiller/laravel-breadcrumbs": "^3.0",
         "hieu-le/active": "^3.3",
         "erusev/parsedown": "^1.6",
-        "barryvdh/laravel-cors": "^0.8.2"
+        "barryvdh/laravel-cors": "^0.8.2",
+        "roave/security-advisories": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
