@@ -19,6 +19,11 @@ class TagController extends BaseController
     {
         $this->tagRepository = $tagRepository;
     }
+
+    /**
+     * @param $name
+     * @return mixed
+     */
     public function show($name)
     {
         $tag = $this->tagRepository->getTagByName($name);
