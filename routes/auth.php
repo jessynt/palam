@@ -16,7 +16,7 @@ Route::group([
 
 // 密码重置
     $route->get('password/reset', ['uses' => 'ForgotPasswordController@showLinkRequestForm', 'as' => 'passwordReset']);
-    $route->post('password/email', ['uses' => 'ForgotPasswordController@sendResetLinkEmail']);
+    $route->post('password/email', ['uses' => 'ForgotPasswordController@sendResetLinkEmail', 'as' => 'passwordSendEmail']);
     $route->get('password/reset/{token}', ['uses' => 'ResetPasswordController@showResetForm', 'as' => 'passwordResetForm']);
     $route->post('password/reset', ['uses' => 'ResetPasswordController@reset']);
 });

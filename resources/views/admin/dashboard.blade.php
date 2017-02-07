@@ -8,31 +8,6 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-3">
-            <div class="info-box">
-                <span class="info-box-icon bg-aqua"><i class="iconfont icon-article"></i></span>
-
-                <div class="info-box-content">
-                    <span class="info-box-text">文章总数</span>
-                    <span class="info-box-number">23</span>
-                </div>
-                <!-- /.info-box-content -->
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="info-box">
-                <span class="info-box-icon bg-green"><i class="iconfont icon-article"></i></span>
-
-                <div class="info-box-content">
-                    <span class="info-box-text">文章总数</span>
-                    <span class="info-box-number">23</span>
-                </div>
-                <!-- /.info-box-content -->
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
         <div class="col-md-8">
             <div class="box box-info">
                 <div class="box-header with-border">

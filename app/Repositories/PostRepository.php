@@ -51,7 +51,6 @@ class PostRepository extends Repository
                 $tag_ids[] = $tag->id;
             }
         }
-
         $data['user_id'] = Auth::id();
         $data['body_original'] = $data['body'];
         $data['body'] = $Parsedowner->toHTML($data['body_original']);

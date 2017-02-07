@@ -21,6 +21,9 @@ class PageRepository extends Repository
         $this->model = $model;
     }
 
+    /**
+     * @return Page
+     */
     public function getModel()
     {
         return $this->model;
