@@ -1,6 +1,10 @@
 <?php
-
+namespace Test\Unit\Services;
+use App;
 use App\Services\AuthenticationService;
+use Auth;
+use Tests\InteractsWithDatabase;
+use Tests\TestCase;
 
 class AuthenticationServiceTest extends TestCase
 {
@@ -26,7 +30,7 @@ class AuthenticationServiceTest extends TestCase
             'password' => str_random(16)
         ];
         $this->authenticationService->create($data);
-        $this->seeInDatabase('users', ['username' => 'test_user']);
+        $this->assertDatabaseHas('users', ['username' => 'test_user']);
     }
 
     public function test_use_username_login()

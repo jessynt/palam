@@ -1,7 +1,10 @@
 <?php
-
+namespace Test\Unit\Repositories;
+use App;
 use App\Models\Post;
 use App\Repositories\PostRepository;
+use Tests\InteractsWithDatabase;
+use Tests\TestCase;
 
 /**
  * Date: 2016/11/15
