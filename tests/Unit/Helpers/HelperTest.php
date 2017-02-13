@@ -1,4 +1,6 @@
 <?php
+namespace Test\Unit\Helpers;
+use Tests\TestCase;
 
 class HelperTest extends TestCase
 {

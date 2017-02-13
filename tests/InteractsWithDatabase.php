@@ -1,5 +1,7 @@
 <?php
+namespace Tests;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use TestDatabaseSeeder;
 
 trait InteractsWithDatabase
 {

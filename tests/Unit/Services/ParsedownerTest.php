@@ -1,12 +1,16 @@
 <?php
-
+namespace Test\Unit\Services;
 use App\Services\Parsedowner;
+use Tests\TestCase;
 
-class ParsedownerTest extends \PHPUnit_Framework_TestCase
+class ParsedownerTest extends TestCase
 {
     private $parsedowner;
 
-    public function setup()
+    /**
+     * @before
+     */
+    public function init()
     {
         $this->parsedowner = new Parsedowner();
     }

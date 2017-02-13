@@ -1,6 +1,11 @@
 <?php
+namespace Test\Unit\Repositories;
+
+use App;
 use App\Models\Category;
 use App\Repositories\CategoryRepository;
+use Tests\InteractsWithDatabase;
+use Tests\TestCase;
 
 /**
  * Date: 2016/11/15

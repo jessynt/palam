@@ -1,7 +1,10 @@
 <?php
-
+namespace Test\Unit\Repositories;
+use App;
 use App\Models\User;
 use App\Repositories\UserRepository;
+use Tests\InteractsWithDatabase;
+use Tests\TestCase;
 
 class UserRepositoryTest extends TestCase
 {
@@ -25,7 +28,7 @@ class UserRepositoryTest extends TestCase
             'password' => str_random(16)
         ];
         $this->userRepository->create($data);
-        $this->seeInDatabase('users', ['username' => 'test_user']);
+        $this->assertDatabaseHas('users', ['username' => 'test_user']);
     }
 
     public function test_get_model()

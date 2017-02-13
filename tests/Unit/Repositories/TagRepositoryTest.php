@@ -1,7 +1,10 @@
 <?php
-
+namespace Test\Unit\Repositories;
+use App;
 use App\Models\Tag;
 use App\Repositories\TagRepository;
+use Tests\InteractsWithDatabase;
+use Tests\TestCase;
 
 class TagRepositoryTest extends TestCase
 {
@@ -30,7 +33,7 @@ class TagRepositoryTest extends TestCase
     {
         $data = ['name' => 'test tag'];
         $this->tagRepository->create($data);
-        $this->seeInDatabase('tags', $data);
+        $this->assertDatabaseHas('tags', $data);
     }
 
     public function test_update_tag()

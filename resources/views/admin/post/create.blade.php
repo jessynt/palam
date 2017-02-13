@@ -87,11 +87,11 @@
     </div>
 @endsection
 @section('after-styles-end')
-    <link rel="stylesheet" href="{{asset('/css/admin/editor.css')}}">
+    <link rel="stylesheet" href="{{mix('/css/admin/editor.css')}}">
     <link href="//cdn.bootcss.com/select2/4.0.3/css/select2.min.css" rel="stylesheet">
 @endsection
 @section('after-scripts-end')
-    <script src="{{asset('/js/admin/editor.js')}}"></script>
+    <script src="{{mix('/js/admin/editor.js')}}"></script>
     <script src="//cdn.bootcss.com/select2/4.0.3/js/select2.min.js"></script>
     <script>
         $(document).ready(function () {

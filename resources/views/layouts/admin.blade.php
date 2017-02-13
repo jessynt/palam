@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'Default Title')</title>
     @yield('before-styles-end')
-    <link rel="stylesheet" href="{{ elixir('css/admin/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ mix('/css/admin/all.css') }}">
     <script>
         window.BlogConfig = {!! json_encode(['csrfToken' => csrf_token()]) !!};
     </script>
@@ -36,7 +36,7 @@
 
 </div>
 @yield('before-scripts-end')
-<script src="{{ elixir('js/admin/dashboard.js') }}"></script>
+<script src="{{ mix('js/admin/dashboard.js') }}"></script>
 @yield('after-scripts-end')
 </body>
 </html>
