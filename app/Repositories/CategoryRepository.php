@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Repositories;
-
 
 use App\Models\Category;
 
@@ -23,14 +21,15 @@ class CategoryRepository extends Repository
 
     /**
      * @param        $per_page
-     * @param array  $condition
+     * @param array $condition
      * @param string $order_by
      * @param string $sort
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     * @throws \InvalidArgumentException
      */
     public function getCategoriesPaginated($per_page, array $condition = [], $order_by = 'id', $sort = 'DESC')
     {
-        return $this->category->where($condition)->orderBy($order_by, $sort)->withCount('posts')->paginate($per_page);
+        return $this->category::where($condition)->orderBy($order_by, $sort)->withCount('posts')->paginate($per_page);
     }
 
     /**
@@ -39,7 +38,7 @@ class CategoryRepository extends Repository
      */
     public function get($name)
     {
-        $category = $this->category->where(['name' => $name])->first();
+        $category = $this->category::where(['name' => $name])->first();
         if (!$category) {
             abort(404);
         }
@@ -48,11 +47,11 @@ class CategoryRepository extends Repository
 
     /**
      * @param $data
-     * @return static
+     * @return CategoryRepository|\Illuminate\Database\Eloquent\Model
      */
     public function create($data)
     {
-        return $this->category->create(['name' => $data['name']]);
+        return $this->category::create(['name' => $data['name']]);
     }
 
     /**
@@ -70,7 +69,7 @@ class CategoryRepository extends Repository
      */
     public function getAll()
     {
-        return $this->category->withCount('posts')->get();
+        return $this->category::withCount('posts')->get();
     }
 
     /**
@@ -83,7 +82,7 @@ class CategoryRepository extends Repository
 
     public function getCategoryByName($name)
     {
-        $category  = $this->category->where(['name' => $name])->first();
+        $category = $this->category::where(['name' => $name])->first();
         if (!$category) {
             abort(404);
         }
