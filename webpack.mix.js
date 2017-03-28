@@ -24,7 +24,3 @@ mix.js('resources/assets/js/plugins/editor.js', 'public/js/admin')
     .js('resources/assets/js/dashboard.js', 'public/js/admin');
 
 mix.sourceMaps();
-
-if (mix.config.inProduction) {
-    mix.version();
-}

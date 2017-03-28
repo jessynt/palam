@@ -1,6 +1,9 @@
 <?php
+namespace App\Acceptance\Routes;
 
 use App\Models\User;
+use Tests\InteractsWithDatabase;
+use Tests\TestCase;
 
 Class AdminRoutesTest extends TestCase
 {
@@ -30,7 +33,6 @@ Class AdminRoutesTest extends TestCase
     {
         $response = $this->actingAs($this->user)->call('GET', route('admin.post.index'));
         $this->assertEquals(200, $response->status());
-        $this->assertViewHasAll(['posts']);
     }
 
     public function test_user_cam_access_the_create_post_page()
@@ -43,14 +45,12 @@ Class AdminRoutesTest extends TestCase
     {
         $response = $this->actingAs($this->user)->call('GET', route('admin.post.edit', ['id' => '1']));
         $this->assertEquals(200, $response->status());
-        $this->assertViewHasAll(['post']);
     }
 
     public function test_user_cam_access_the_categories_page()
     {
         $response = $this->actingAs($this->user)->call('GET', route('admin.category.index'));
         $this->assertEquals(200, $response->status());
-        $this->assertViewHasAll(['categories']);
     }
 
     public function test_user_cam_access_the_create_category_page()
@@ -63,14 +63,12 @@ Class AdminRoutesTest extends TestCase
     {
         $response = $this->actingAs($this->user)->call('GET', route('admin.category.edit', ['id' => '1']));
         $this->assertEquals(200, $response->status());
-        $this->assertViewHasAll(['category']);
     }
 
     public function test_user_cam_access_the_tags_page()
     {
         $response = $this->actingAs($this->user)->call('GET', route('admin.tag.index'));
         $this->assertEquals(200, $response->status());
-        $this->assertViewHasAll(['tags']);
     }
 
     public function test_user_cam_access_the_create_tag_page()
@@ -83,6 +81,5 @@ Class AdminRoutesTest extends TestCase
     {
         $response = $this->actingAs($this->user)->call('GET', route('admin.tag.edit', ['id' => '1']));
         $this->assertEquals(200, $response->status());
-        $this->assertViewHasAll(['tag']);
     }
 }

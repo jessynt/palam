@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\Admin\Category\CreateCategoryRequest;
 use App\Http\Requests\Admin\Category\UpdateCategoryRequest;
+use App\Models\User;
+use Illuminate\Database\Eloquent\Model;
 use Redirect;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -30,6 +32,7 @@ class CategoryController extends Controller
      * @param Request $request
      *
      * @return \Illuminate\Http\Response
+     * @throws \InvalidArgumentException
      */
     public function index(Request $request)
     {
@@ -84,7 +87,7 @@ class CategoryController extends Controller
      * @param UpdateCategoryRequest $request
      * @param Category              $category
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
@@ -100,13 +103,13 @@ class CategoryController extends Controller
      *
      * @param Category $category
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      *
      * @throws \Exception
      */
     public function destroy(Category $category)
     {
-        $post_count = $category->posts()->count();
+        $post_count = $category->posts->count();
         if ($post_count > 0) {
             return Redirect::back()->withErrors('该分类下还有'.$post_count.'篇文章，请先移动文章后再删除');
         }
