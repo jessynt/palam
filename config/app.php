@@ -173,6 +173,7 @@ return [
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
         HieuLe\Active\ActiveServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
+        Appstract\Opcache\OpcacheServiceProvider::class,
         /*
          * Application Service Providers...
          */
