@@ -10,4 +10,4 @@ I'm not ready yet, coming soon!
 
 [MIT](http://opensource.org/licenses/MIT)
 
-Copyright (c) 2016-2017 Jessynt
+Copyright (c) 2016-2018 Jessynt
