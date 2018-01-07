@@ -1,28 +1,25 @@
 language: php
-
 php:
-  - 7.0
-  - 7.1
-  - 7.2
-  - nightly
-
+- 7.0
+- 7.1
+- 7.2
+- nightly
 matrix:
   fast_finish: true
-
   allow_failures:
-    - php: 7.2
-    - php: nightly
-
+  - php: 7.2
+  - php: nightly
 cache:
   directories:
-    - $HOME/.composer/cache
-
+  - "$HOME/.composer/cache"
 before_script:
-  - chmod 777 -R storage
-  - cp .env.travis .env
-  - travis_retry composer self-update
-  - travis_retry composer install --no-interaction
-  - php artisan key:generate
-
+- chmod 777 -R storage
+- cp .env.travis .env
+- travis_retry composer self-update
+- travis_retry composer install --no-interaction
+- php artisan key:generate
 script:
-  - vendor/bin/phpunit
+- vendor/bin/phpunit
+notifications:
+  slack:
+    secure: D3I8dA6iYG7e3kJ4kAcQ2sVSItJbZpzP2q7nzbVu7f3c9jjGOz+9cIQW4QTIZauNJofIz5jGv2QG3wqv57jXTzsMcBh/LrvcqTN1b0xxrHtx7pQBY6fWUDWNiSDPmhGQX/NeqRi5cOZeAVt71VYnnmgMefIFIAVg9rqrC6Zbwr7CMkz/0j9jJPGwkFaQd9221cv5odkv0JN9kXGGwD4LZH7+1r13cGJ4Onp+Y8BIBpa23Ne0K7Zv60xGvDorNAxIy3mF+gDEfWUvU8yDkqqojTlrBbqZOZP5rs8qTohcLRmc7FhgFUuHYqD99MAoP6McpkPu7pg49nebkrqHdj/W/tnzjndBydCQsNiWe92rVxzxk8ZLaGL4ZR53R7R8hjHd1QgC251YMIRRy2ZgoqWBlWnfdxanHluZkTUd5FMbLwMiTA1Ia/dfbzz2zjlRD0Y/QpaoZGIrDs80G0hSfJY0+Git0gAwcrC3xwaPQVsF3u3L3n/Lzq+EXa7iKANFNxtNATKHCJzxVrJyUnCsS6Flr828MxDFFXCi1J8h+D3S1GWKMI79W95sSFwjuNZ6wcFYu7vDhMt92R8AjZWXeX4jVgMMig/j2bw465l5UKkiHCL4Jn/Vq/rfovjvgWh3q1/cfybiAColGJomkysb1m7zHoJ+uY5DkT4ubG3mXdmMbkE=
